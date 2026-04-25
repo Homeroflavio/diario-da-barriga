@@ -1,16 +1,38 @@
 # 🍽️ Diário da Barriga
 
-Aplicação fullstack desenvolvida como atividade acadêmica, com o objetivo de registrar refeições diárias de forma simples, visual e interativa.
+Aplicação fullstack em formato **PWA (Progressive Web App)** para registro diário de refeições com imagens, calendário interativo e experiência mobile.
 
-## 🚀 Sobre o projeto
+---
 
-O **Diário da Barriga** é um aplicativo web em formato **PWA (Progressive Web App)** que permite ao usuário:
+## 🌐 Acesse o projeto
 
-- Registrar refeições ao longo do dia
-- Adicionar descrição, data, horário e imagem
-- Visualizar refeições por dia através de um calendário interativo
-- Instalar o app no celular como se fosse um aplicativo nativo
-- Personalizar o nome do usuário localmente
+👉 **Link da aplicação:**  
+🔗 _[COLOQUE_SEU_LINK_AQUI]_
+
+---
+
+## 📸 Preview do sistema
+
+### 📱 Tela inicial
+![Tela inicial](COLOQUE_LINK_DO_PRINT_AQUI)
+
+### 📅 Calendário e refeições
+![Calendário](COLOQUE_LINK_DO_PRINT_AQUI)
+
+### ➕ Adicionar refeição
+![Adicionar refeição](COLOQUE_LINK_DO_PRINT_AQUI)
+
+---
+
+## 🚀 Funcionalidades
+
+- ✅ Cadastro de refeições (CRUD completo)
+- 📸 Upload de imagens (Cloudinary)
+- 📅 Calendário semanal interativo
+- 📊 Visualização por dia
+- 👤 Nome do usuário salvo localmente
+- 📱 Interface mobile-first
+- 📦 Instalável como aplicativo (PWA)
 
 ---
 
@@ -20,8 +42,8 @@ O **Diário da Barriga** é um aplicativo web em formato **PWA (Progressive Web 
 - Node.js
 - Express
 - MongoDB (Atlas)
-- Mongoose (ORM)
-- Cloudinary (upload de imagens)
+- Mongoose
+- Cloudinary
 - Multer
 
 ### 🎨 Frontend
@@ -41,12 +63,22 @@ O **Diário da Barriga** é um aplicativo web em formato **PWA (Progressive Web 
 meal-tracker/
 ├── meal-tracker-backend/
 │   ├── src/
-│   ├── .env
-│   └── server.js
+│   │   ├── models/        # Modelos do MongoDB (ex: Meal)
+│   │   ├── controllers/   # Lógica das rotas (CRUD)
+│   │   ├── routes/        # Definição das rotas da API
+│   │   ├── config/        # Configurações (Cloudinary, DB, etc)
+│   │   └── server.js      # Arquivo principal do backend
+│   ├── .env               # Variáveis de ambiente (não versionado)
+│   ├── package.json
+│   └── .gitignore
 │
 └── meal-tracker-frontend/
-    ├── index.html
-    ├── manifest.json
-    ├── service-worker.js
-    ├── icons/
+    ├── index.html         # Estrutura principal da aplicação
+    ├── manifest.json      # Configuração do PWA
+    ├── service-worker.js  # Cache e funcionamento offline
+    ├── icons/             # Ícones do aplicativo (PWA)
+    │   ├── icon-192.png
+    │   └── icon-512.png
     └── src/
+        ├── main.js        # Lógica da aplicação (API, DOM, etc)
+        └── styles.css     # Estilização da interface
