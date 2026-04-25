@@ -7,7 +7,7 @@ Aplicação fullstack em formato **PWA (Progressive Web App)** para registro di�
 ## 🌐 Acesse o projeto
 
 👉 **Link da aplicação:**  
-🔗 _[COLOQUE_SEU_LINK_AQUI]_
+🔗 _[https://diario-da-barriga.vercel.app]_
 
 ---
 
