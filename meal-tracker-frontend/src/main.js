@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/meals";
+const API_URL = "https://diario-da-barriga.onrender.com/meals";
 
 let selectedDate = new Date().toISOString().split("T")[0];
 let allMeals = [];
