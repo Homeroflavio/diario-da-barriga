@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diário da Barriga</title>
+
+  <link rel="stylesheet" href="src/styles.css">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#d97b3d">
+</head>
+<body>
+
+  <!-- Tela inicial -->
+  <div id="welcome" class="center-screen">
+    <h2>Qual é seu nome?</h2>
+    <input id="nameInput" placeholder="Digite seu nome">
+    <button onclick="saveName()">Começar</button>
+  </div>
+
+  <!-- App -->
+  <div id="app" class="hidden">
+
+    <main>
+
+      <!-- Diário -->
+      <section id="diary">
+        <p id="current-date" class="current-date"></p>
+        <h2 id="greeting"></h2>
+
+        <div id="week-calendar" class="week-calendar"></div>
+
+        <h3>Refeições do dia</h3>
+        <div id="meals-list"></div>
+      </section>
+
+      <!-- Perfil -->
+      <section id="profile" class="hidden">
+        <h3>Perfil</h3>
+        <input id="editName" placeholder="Novo nome">
+        <button onclick="updateName()">Salvar</button>
+      </section>
+
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+
+        <h3>Adicionar refeição</h3>
+
+        <input id="title" placeholder="Título">
+        
+        <select id="type">
+          <option value="cafe">Café</option>
+          <option value="almoco">Almoço</option>
+          <option value="jantar">Jantar</option>
+          <option value="lanche">Lanche</option>
+        </select>
+
+        <textarea id="description" placeholder="Descrição"></textarea>
+
+        <input type="date" id="date">
+        <input type="time" id="time">
+        <input type="file" id="image">
+
+        <button onclick="createMeal()">Salvar</button>
+        <button onclick="closeModal()">Cancelar</button>
+
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bottom-nav">
+      <button onclick="showDiary()">Diário</button>
+      <button class="add-btn" onclick="openModal()">+</button>
+      <button onclick="showProfile()">Perfil</button>
+    </nav>
+
+  </div>
+
+  <script src="src/main.js"></script>
+</body>
+</html>
