@@ -14,13 +14,14 @@ Aplicação fullstack em formato **PWA (Progressive Web App)** para registro di�
 ## 📸 Preview do sistema
 
 ### 📱 Tela inicial
-![Tela inicial](COLOQUE_LINK_DO_PRINT_AQUI)
+<img width="877" height="520" alt="image" src="https://github.com/user-attachments/assets/f12c676e-dcfb-4051-bba3-5c0454a778fe" />
 
 ### 📅 Calendário e refeições
-![Calendário](COLOQUE_LINK_DO_PRINT_AQUI)
+<img width="1328" height="906" alt="image" src="https://github.com/user-attachments/assets/353642fc-ad5f-47bd-a7d8-cd1a09885287" />
 
 ### ➕ Adicionar refeição
-![Adicionar refeição](COLOQUE_LINK_DO_PRINT_AQUI)
+<img width="1421" height="904" alt="image" src="https://github.com/user-attachments/assets/28edbc53-06f3-4659-84c8-4c827a6c975b" />
+
 
 ---
 
