@@ -278,3 +278,19 @@ main {
     transform: translateX(-50%);
   }
 }
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.card-actions button {
+  flex: 1;
+  padding: 10px;
+  font-size: 13px;
+}
+
+.delete-btn {
+  background: #b84432;
+}

@@ -2,6 +2,7 @@ const API_URL = "https://diario-da-barriga.onrender.com/meals";
 
 let selectedDate = new Date().toISOString().split("T")[0];
 let allMeals = [];
+let editingMealId = null;
 
 const welcome = document.getElementById("welcome");
 const app = document.getElementById("app");
@@ -73,14 +74,18 @@ function showProfile() {
 function openModal() {
   modal.classList.remove("hidden");
 
-  document.getElementById("date").value = selectedDate;
+  if (!editingMealId) {
+    document.getElementById("date").value = selectedDate;
 
-  const now = new Date();
-  document.getElementById("time").value = now.toTimeString().slice(0, 5);
+    const now = new Date();
+    document.getElementById("time").value = now.toTimeString().slice(0, 5);
+  }
 }
 
 function closeModal() {
   modal.classList.add("hidden");
+  editingMealId = null;
+  clearForm();
 }
 
 async function loadMeals() {
@@ -180,11 +185,49 @@ function renderMeals(meals) {
         <p>${formatType(meal.type)} • ${meal.time}</p>
         <p>${meal.description || ""}</p>
         <p>${formatDate(meal.date)}</p>
+
+        <div class="card-actions">
+          <button onclick='startEditMeal(${JSON.stringify(meal)})'>Editar</button>
+          <button class="delete-btn" onclick="deleteMeal('${meal._id}')">Excluir</button>
+        </div>
       </div>
     `;
 
     mealsList.appendChild(card);
   });
+}
+
+function startEditMeal(meal) {
+  editingMealId = meal._id;
+
+  document.getElementById("title").value = meal.title;
+  document.getElementById("type").value = meal.type;
+  document.getElementById("description").value = meal.description || "";
+  document.getElementById("date").value = meal.date;
+  document.getElementById("time").value = meal.time;
+
+  modal.classList.remove("hidden");
+}
+
+async function deleteMeal(id) {
+  const confirmDelete = confirm("Deseja excluir esta refeição?");
+
+  if (!confirmDelete) return;
+
+  try {
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: "DELETE"
+    });
+
+    if (!response.ok) {
+      throw new Error("Erro ao excluir refeição");
+    }
+
+    loadMeals();
+  } catch (error) {
+    alert("Erro ao excluir refeição.");
+    console.error(error);
+  }
 }
 
 async function createMeal() {
@@ -212,18 +255,21 @@ async function createMeal() {
   }
 
   try {
-    const response = await fetch(API_URL, {
-      method: "POST",
+    const url = editingMealId ? `${API_URL}/${editingMealId}` : API_URL;
+    const method = editingMealId ? "PUT" : "POST";
+
+    const response = await fetch(url, {
+      method,
       body: formData
     });
 
     if (!response.ok) {
-      throw new Error("Erro ao criar refeição");
+      throw new Error("Erro ao salvar refeição");
     }
 
     selectedDate = date;
+    editingMealId = null;
     closeModal();
-    clearForm();
     loadMeals();
   } catch (error) {
     alert("Erro ao salvar refeição.");
